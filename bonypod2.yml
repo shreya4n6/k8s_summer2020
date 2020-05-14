@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bonypod2
+spec:
+  containers:
+    - name: bonyc2
+      image: nginx

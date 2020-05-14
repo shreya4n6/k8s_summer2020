@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod  # here P is in caps
+metadata: # some info about pod
+  name: bonypod1
+spec:
+  containers:   # about my docker image and container info
+    - name: bonyc1 # name of my container
+      image: nginx  # will pull image from docker hub
