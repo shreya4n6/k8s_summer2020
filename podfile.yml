@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podfile
+spec:
+  containers:
+    - image: nginx
+      name: bonic3
+      ports:
+        - containerPort: 80
