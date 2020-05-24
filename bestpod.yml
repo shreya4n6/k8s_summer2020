@@ -1,0 +1,36 @@
+apiVersion: v1     #  THIS IS MY POD FILE TILL STATUS
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: bonip1 
+  name: bonip1    # POD NAME
+spec:
+  containers:
+  - image: nginx    # IMAGE TO BE PULLED FROM DOCKER HUB
+    name: bonip1    # CONTAINER NAME
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+---
+apiVersion: v1        # MY SERVICE FILE STARTS FROM HERE
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:  # LABEL OF SERVICE
+    app: bonibestways1
+  name: bonibestways1 # NAME OF SERVICE  
+spec:
+  ports:
+  - name: myport
+    port: 80   # SERVICE PORT THAT IS GOING TO BIND WITH THE SERVICE IP AND THIS IS NOT DEPENDENT ON CONTAINER PORT
+    protocol: TCP
+    targetPort: 80  # TARGET PORT WHERE SERVICE WILL FORWARD ITS TRAFFIC
+  selector:  # USED FOR MATCHING THE LABEL OF PODS
+    run: bonip1  # SAME AS THE run OF THE POD FILE
+  type: NodePort
+status:
+  loadBalancer: {}

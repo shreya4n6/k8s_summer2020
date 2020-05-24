@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: bonipodnew  # NAME OF THE POD
+ labels:
+  x: helloenv
+spec:
+ containers:
+  - name: shreyac1
+    image: dockerashu/ckad:v2
+    ports: 
+     - containerPort: 80
+    env: # this is for replacing the ENV variable in POD
+     - name: color # this must be the same variable that we define in docker file under ENV keyword
+       value: yellow  # this is the replaced value
