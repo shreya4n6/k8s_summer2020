@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: myrcboni1
+ labels:
+  app: web1  # This is the label of rc not label of pod
+spec:
+ replicas: 1  # Always one pod will be present even in case of current worker node failure
+ template:
+  metadata:
+   name: myrcpod  #The name of Pod creathed bt RC
+   labels:
+    x: hello_k8s
+  spec:
+   containers:
+    - name: bonix111
+      image: nginx
+      ports:
+       - containerPort: 80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
