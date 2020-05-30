@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: adhocnw
+  creationTimestamp: null
+  labels:
+    app: bponidepl1
+  name: bponidepl1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bponidepl1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: bponidepl1
+    spec:
+      containers:
+      - image: dockerashu/summer2020:vv11
+        name: summer2020
+        resources: {}
+status: {}
