@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1     #apiversion of role
+kind: Role
+metadata:
+ name: shreyarole1
+ namespace: limited
+rules:
+ - apiGroups: ["v1","apps",""] # about the apiversion. U can create only those k8s resources jiska api is mentioned here. In this case it is v1, apps and blank. If u wanna give everything 
+       # use *
+   resources: ["Pods","Deployment"]
+   verbs: ["create","get","update","delete","watch","list"]
+   # When we get a ns from a company we are working for, they can limit that what we cannot do
+   # Now we have to bind this role with a particular user

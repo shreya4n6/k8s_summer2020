@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+ name: rolebinding1
+ namespace: limited
+subjects:   #info about the user
+ - kind: User
+   name: default    # name of service account
+roleRef:   # which role to bind with the user 
+ kind: Role
+ name: shreyarole1
+ apiGroup: ""
